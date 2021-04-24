@@ -1,0 +1,26 @@
+{
+  "name": "email_sender",
+  "version": "0.0.1",
+  "description": "Node.js email sender",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Toni Mahilainen",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.5.0",
+    "typescript": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.11",
+    "@types/node": "^14.14.41",
+    "@types/nodemailer": "^6.4.1"
+  }
+}
