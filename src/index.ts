@@ -5,7 +5,6 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 
 const app = express();
-const port = 3001;
 
 app.use(cors());
 
@@ -29,7 +28,7 @@ app.post("/sendmail", (req, res) => {
     subject: body.subject,
     html:
       `<p>Lähettäjän nimi: <b>${body.name}</b></p>` +
-      `<p>Lähettäjän sähköpostiosoite: <b>${body.sender}</b></p><br/>` +
+      `<p>Lähettäjän sähköpostiosoite: <b>${body.emailAddress}</b></p><br/>` +
       `<p>Viesti:<br/> ${body.message}</p>`,
   };
 
@@ -37,10 +36,12 @@ app.post("/sendmail", (req, res) => {
     if (error) {
       res.send("Error: " + error);
     } else {
-      res.send("Email sent: " + info.response);
+      res.send("Palaute lähetetty!");
     }
   });
 });
+
+const port = 3001;
 
 app.listen(port, () =>
   console.log(`Email sender is listening on port ${port}!`)
