@@ -41,7 +41,7 @@ app.post("/sendmail", (req, res) => {
   });
 });
 
-const port = 3001;
+const port = process.env.PORT;
 
 app.listen(port, () =>
   console.log(`Email sender is listening on port ${port}!`)
