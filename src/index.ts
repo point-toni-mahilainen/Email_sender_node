@@ -13,10 +13,10 @@ app.use(bodyParser.json());
 
 app.post("/sendmail", (req, res) => {
   const body = req.body;
-  console.log(body);
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
     auth: {
+      type: "login",
       user: process.env.EMAIL_SENDER,
       pass: process.env.EMAIL_PASSWORD,
     },
