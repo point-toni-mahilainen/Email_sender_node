@@ -14,7 +14,9 @@ app.use(bodyParser.json());
 app.post("/sendmail", (req, res) => {
   const body = req.body;
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: "smtp-mail.outlook.com",
+    port: 587,
+    authMethod: "STARTTLS",
     auth: {
       type: "login",
       user: process.env.EMAIL_SENDER,
