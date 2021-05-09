@@ -16,6 +16,7 @@ app.post("/sendmail", (req, res) => {
   const transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com",
     port: 587,
+    secure: true,
     authMethod: "STARTTLS",
     auth: {
       type: "login",
