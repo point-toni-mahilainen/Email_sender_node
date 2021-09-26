@@ -17,7 +17,8 @@ app.use(fileUpload());
 app.post("/sendmail", (req, res) => {
   const body = req.body;
   const file = req.files.attachment;
-  file.mv("./temp/" + file.name, function (err) {
+  const filePath = `./temp/${file.name}`;
+  file.mv(filePath, function (err) {
     if (err) return res.status(500).send(err);
   });
   console.log(req.files.attachment);
@@ -44,7 +45,7 @@ app.post("/sendmail", (req, res) => {
     attachments: [
       {
         fileName: file.name,
-        path: "./temp/" + file.name,
+        path: filePath,
       },
     ],
   };
@@ -54,7 +55,7 @@ app.post("/sendmail", (req, res) => {
       res.send("Error: " + error);
     } else {
       res.send("Palaute lähetetty!");
-      fs.unlink("./temp/" + file.name, (err) => {
+      fs.unlink(filePath, (err) => {
         if (err) {
           console.error(err);
           return;
